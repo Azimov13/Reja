@@ -1,4 +1,5 @@
 console.log("Web serverni boshlash");
+const { log } = require("console");
 const express = require("express");
 const app = express();
 const http = require("http");
@@ -14,8 +15,13 @@ app.set("views", "views");
 app.set("view engine", "ejs");
 
 // 4: Routing code:yani marshrut
+app.post("/create-item", (req, res) => {
+  console.log(req.body);
+  res.json({ test: "success" });
+});
+
 app.get("/", function (req, res) {
-  res.end("harid");
+  res.render("harid");
 });
 
 const server = http.createServer(app);
