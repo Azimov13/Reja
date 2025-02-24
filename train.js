@@ -116,3 +116,16 @@
 // ==========================================================================================
 // ==========================================================================================
 // TASK C HOMEWORK
+const countLetter = (a, b) => {
+  a = a.toLowerCase();
+  b = b.toLowerCase();
+
+  let count = 0;
+  for (const char of b) {
+    // ✅ Cleaner loop
+    if (char === a) count++;
+  }
+  return count;
+};
+
+console.log(countLetter("e", "Engineer")); // Output: 3
