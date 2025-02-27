@@ -115,17 +115,36 @@
 // ==========================================================================================
 // ==========================================================================================
 // ==========================================================================================
-// TASK C HOMEWORK
-const countLetter = (a, b) => {
-  a = a.toLowerCase();
-  b = b.toLowerCase();
+// // TASK C HOMEWORK
+// const countLetter = (a, b) => {
+//   a = a.toLowerCase();
+//   b = b.toLowerCase();
 
+//   let count = 0;
+//   for (const char of b) {
+//     // ✅ Cleaner loop
+//     if (char === a) count++;
+//   }
+//   return count;
+// };
+
+// console.log(countLetter("e", "Engineer")); // Output: 3
+// ==========================================================================================
+// ==========================================================================================
+// ==========================================================================================
+
+// TASK D HOMEWORK
+function countDigits(inputString) {
   let count = 0;
-  for (const char of b) {
-    // ✅ Cleaner loop
-    if (char === a) count++;
+  for (let i = 0; i < inputString.length; i++) {
+    if (inputString[i] >= "0" && inputString[i] <= "9") {
+      count++;
+    }
   }
   return count;
-};
+}
 
-console.log(countLetter("e", "Engineer")); // Output: 3
+console.log(countDigits("ad2a54y79wet0sfgb9"));
+
+// ==========================================================================================
+// ==========================================================================================
