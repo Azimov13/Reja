@@ -20,11 +20,8 @@ app.post("/create-item", (req, res) => {
   console.log(req.body);
   const new_reja = req.body.reja;
   db.collection("plans").insertOne({ reja: new_reja }, (err, data) => {
-    if (err) {
-      console.log("something went wrong");
-    } else {
-      res.end("successfully added");
-    }
+    console.log(data.ops);
+    res.json(data.ops[0]);
   });
 });
 app.get("/author", (req, res) => {
@@ -46,8 +43,3 @@ app.get("/", function (req, res) {
 });
 
 module.exports = app;
-// app.get("/", function (req, res) {
-//   res.render("reja");
-// });
-
-// module.exports = app;
