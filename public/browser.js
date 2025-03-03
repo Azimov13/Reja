@@ -1,9 +1,9 @@
-console.log("frontEnd JS ishga tushdi");
+console.log("FrontEnd JS ishga tushdi");
 function itemTemplate(item) {
   return `<li
           class="list-group-item list-group-item-info d-flex align-items-center justify-content-between"
         >
-          <span class="item-text"${item.reja}</span>
+          <span class="item-text">${item.reja}</span>
           <div>
             <button data-id="${item._id}" class="btn btn-primary" style="border-radius: 20px">
               O'zgartirish
@@ -21,13 +21,43 @@ document.getElementById("create-form").addEventListener("submit", function (e) {
 
   axios
     .post("/create-item", { reja: createField.value })
-    .then((responce) => {
+    .then((response) => {
       document
         .getElementById("item-list")
-        .insertAdjacentElement("beforeend", itemTemplate(responce.data));
+        .insertAdjacentHTML("beforeend", itemTemplate(response.data));
       createField.value = "";
       createField.focus();
     })
-    .catch((err) => {});
-  console.log("iltimos qaytadan harakat qiling");
+    .catch((err) => {
+      console.log("iltimos qaytadan harakat qiling");
+    });
+});
+
+document.addEventListener("click", function (e) {
+  //  delete oper
+  console.log(e.target);
+  if (e.target.classList.contains("delete-me")) {
+    if (confirm("Are you sure you want to delete")) {
+      axios
+        .post("/delete-item", { id: e.target.getAttribute("data-id") })
+        .then((respose) => {
+          console.log(respose.data);
+          e.target.parentElement.parentElement.remove();
+        })
+        .catch((err) => {
+          console.log("iltimos qaytadan harakat qiling");
+        });
+    }
+  }
+
+  //   edit oper
+  if (e.target.classList.contains("edit-me")) {
+    let userInput = prompt(
+      "O'zgartirish kiriting",
+      e.target.parentElement.parentElement.querySelector(".item-text").innerHTML
+    );
+    if (userInput) {
+      console.log("useinput");
+    }
+  }
 });
