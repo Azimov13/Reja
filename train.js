@@ -134,17 +134,54 @@
 // ==========================================================================================
 
 // TASK D HOMEWORK
-function countDigits(inputString) {
-  let count = 0;
-  for (let i = 0; i < inputString.length; i++) {
-    if (inputString[i] >= "0" && inputString[i] <= "9") {
-      count++;
-    }
+// function countDigits(inputString) {
+//   let count = 0;
+//   for (let i = 0; i < inputString.length; i++) {
+//     if (inputString[i] >= "0" && inputString[i] <= "9") {
+//       count++;
+//     }
+//   }
+//   return count;
+// }
+
+// console.log(countDigits("ad2a54y79wet0sfgb9"));
+
+// ==========================================================================================
+// ==========================================================================================
+// TASK C
+
+class Store {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
   }
-  return count;
+
+  qoldiq() {
+    const time = new Date().toLocaleTimeString();
+    console.log(
+      `${time} da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`
+    );
+  }
 }
 
-console.log(countDigits("ad2a54y79wet0sfgb9"));
-
+class Shop extends Store {
+  sotish(mahsulot, miqdor) {
+    if (mahsulot === "non") this.non -= miqdor;
+    if (mahsulot === "lagmon") this.lagmon -= miqdor;
+    if (mahsulot === "cola") this.cola -= miqdor;
+    this.qoldiq();
+  }
+  qabul(mahsulot, miqdor) {
+    if (mahsulot === "non") this.non += miqdor;
+    if (mahsulot === "lagmon") this.lagmon += miqdor;
+    if (mahsulot === "cola") this.cola += miqdor;
+    this.qoldiq();
+  }
+}
+const shop = new Shop(4, 5, 2);
+shop.qoldiq();
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
 // ==========================================================================================
 // ==========================================================================================
