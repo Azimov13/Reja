@@ -150,38 +150,48 @@
 // ==========================================================================================
 // TASK C
 
-class Store {
-  constructor(non, lagmon, cola) {
-    this.non = non;
-    this.lagmon = lagmon;
-    this.cola = cola;
-  }
+// class Store {
+//   constructor(non, lagmon, cola) {
+//     this.non = non;
+//     this.lagmon = lagmon;
+//     this.cola = cola;
+//   }
 
-  qoldiq() {
-    const time = new Date().toLocaleTimeString();
-    console.log(
-      `${time} da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`
-    );
-  }
-}
+//   qoldiq() {
+//     const time = new Date().toLocaleTimeString();
+//     console.log(
+//       `${time} da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`
+//     );
+//   }
+// }
 
-class Shop extends Store {
-  sotish(mahsulot, miqdor) {
-    if (mahsulot === "non") this.non -= miqdor;
-    if (mahsulot === "lagmon") this.lagmon -= miqdor;
-    if (mahsulot === "cola") this.cola -= miqdor;
-    this.qoldiq();
-  }
-  qabul(mahsulot, miqdor) {
-    if (mahsulot === "non") this.non += miqdor;
-    if (mahsulot === "lagmon") this.lagmon += miqdor;
-    if (mahsulot === "cola") this.cola += miqdor;
-    this.qoldiq();
-  }
-}
-const shop = new Shop(4, 5, 2);
-shop.qoldiq();
-shop.sotish("non", 3);
-shop.qabul("cola", 4);
+// class Shop extends Store {
+//   sotish(mahsulot, miqdor) {
+//     if (mahsulot === "non") this.non -= miqdor;
+//     if (mahsulot === "lagmon") this.lagmon -= miqdor;
+//     if (mahsulot === "cola") this.cola -= miqdor;
+//     this.qoldiq();
+//   }
+//   qabul(mahsulot, miqdor) {
+//     if (mahsulot === "non") this.non += miqdor;
+//     if (mahsulot === "lagmon") this.lagmon += miqdor;
+//     if (mahsulot === "cola") this.cola += miqdor;
+//     this.qoldiq();
+//   }
+// }
+// const shop = new Shop(4, 5, 2);
+// shop.qoldiq();
+// shop.sotish("non", 3);
+// shop.qabul("cola", 4);
 // ==========================================================================================
 // ==========================================================================================
+
+// TASK D
+// ==========================================================================================
+// ==========================================================================================
+function checkContent(ism1, ism2) {
+  return ism1.split("").sort().join("") === ism2.split("").sort().join("");
+}
+
+console.log(checkContent("mitgroup", "gmtiprou")); // true
+console.log(checkContent("hello", "world")); // false
