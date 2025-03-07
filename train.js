@@ -188,10 +188,19 @@
 
 // TASK D
 // ==========================================================================================
-// ==========================================================================================
-function checkContent(ism1, ism2) {
-  return ism1.split("").sort().join("") === ism2.split("").sort().join("");
+// // ==========================================================================================
+// function checkContent(ism1, ism2) {
+//   return ism1.split("").sort().join("") === ism2.split("").sort().join("");
+// }
+
+// console.log(checkContent("mitgroup", "gmtiprou")); // true
+// console.log(checkContent("hello", "world")); // false
+// // ==========================================================================================
+// // ==========================================================================================
+
+// TASK E
+function getReverse(str) {
+  return str.split("").reverse().join("");
 }
 
-console.log(checkContent("mitgroup", "gmtiprou")); // true
-console.log(checkContent("hello", "world")); // false
+console.log(getReverse("hello")); // "olleh"
