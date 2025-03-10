@@ -198,9 +198,20 @@
 // // ==========================================================================================
 // // ==========================================================================================
 
-// TASK E
-function getReverse(str) {
-  return str.split("").reverse().join("");
+// // TASK E
+// function getReverse(str) {
+//   return str.split("").reverse().join("");
+// }
+
+// console.log(getReverse("hello")); // "olleh"
+
+// // ==========================================================================================
+// // ==========================================================================================
+// TASK F
+
+function findDoublers(mit26) {
+  return mit26.split("").some((bob, i) => bob === mit26[i + 1]);
 }
 
-console.log(getReverse("hello")); // "olleh"
+console.log(findDoublers("hello")); // true
+console.log(findDoublers("world")); // false
